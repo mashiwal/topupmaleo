@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0">
+  <meta name="description" content=
+  "Top Up TRUCKSID (UT) dan BUSSID (UB) termurah! Gas Pol, Top Up Murah, Langsung Ngebut!">
+  <meta name="keywords" content=
+  "topup trucksid, topup bussid, jasa topup game, uang trucksid, uang bussid, google login, facebook login, telegram, qris, dana, gopay, seabank">
+  <meta name="author" content="TopUpCepat">
+  <title>TCBT - Top Up Cash Bussid & Trucksid</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href=
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"><!-- Google Fonts: Poppins -->
+  <link href=
+  "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap"
+  rel="stylesheet"><!-- Favicon -->
+  <link rel="icon" type="image/png" href=
+  "https://cdn-icons-png.flaticon.com/512/138/138292.png">
+  <!-- VanillaTilt.js -->
+
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            overflow-x: hidden;
+            margin: 0;
+        }
+        /* Animasi Fade-In */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(90deg, #000000, #1900ff);
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand img {
+            height: 45px;
+            transition: transform 0.3s;
+        }
+        .navbar-brand img:hover {
+            transform: rotate(10deg);
+        }
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-weight: 400;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #1900ff !important;
+            transform: translateY(-2px);
+        }
+        .navbar-toggler {
+            border: none;
+        }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(90deg, #000000, #1900ff), url('https://images.unsplash.com/photo-1523592154326-66e3564ad7eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 140px 20px;
+            overflow: hidden;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero .slogan {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+        .hero .btn {
+            background: linear-gradient(90deg, #000000, #1900ff);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 14px 40px;
+            border-radius: 50px;
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .hero .btn:hover {
+            background: linear-gradient(90deg, #000000, #000000);
+            transform: scale(1.05);
+        }
+        /* Mouse Trail Canvas */
+        #trail-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* Top Up Section */
+        .topup-section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+        .topup-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(90deg, #000000, #1900ff);
+            margin-bottom: 20px;
+            padding: 25px;
+            transition: transform 0.3s;
+        }
+        .topup-card:hover {
+            transform: translateY(-10px);
+        }
+        .topup-card h3 {
+            color: #ffffff;
+            font-size: 1.7rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .topup-card h3 img {
+            width: 35px;
+            margin-right: 12px;
+        }
+        .topup-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+        .topup-card ul li {
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+            color: #ffffff;
+        }
+        .topup-card .btn {
+            background: linear-gradient(90deg, #000000, #1900ff);
+            color: #fff;
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .topup-card .btn:hover {
+            background: linear-gradient(90deg, #000000, #000000);
+            transform: scale(1.05);
+        }
+        /* Pesan Section */
+        .pesan-section {
+            padding: 80px 20px;
+            background: linear-gradient(90deg, #000000, #1900ff);
+        }
+        .pesan-form {
+            background: #fff;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+        .pesan-form h2 {
+            color: #000000;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .pesan-form .form-control, .pesan-form .form-select {
+            border-radius: 8px;
+            margin-bottom: 1.2rem;
+            transition: border-color 0.3s;
+        }
+        .pesan-form .form-control:focus, .pesan-form .form-select:focus {
+            border-color: #1900ff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+        }
+        .pesan-form .btn {
+            background: linear-gradient(90deg, #000000, #1900ff);
+            color: #fff;
+            font-weight: 600;
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .pesan-form .btn:hover {
+            background: linear-gradient(90deg, #000000, #000000);
+            transform: scale(1.05);
+        }
+        .pesan-form .btn-select-package {
+            background: linear-gradient(90deg, #000000, #1900ff);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .pesan-form .btn-select-package:hover {
+            background: linear-gradient(90deg, #000000, #000000);
+            transform: scale(1.05);
+        }
+        .pesan-form .alert {
+            display: none;
+            margin-bottom: 1.2rem;
+        }
+        .pesan-form .form-label img {
+            width: 20px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        /* Popup Modal */
+        .package-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .package-modal-content {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .package-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .package-modal-close:hover {
+            transform: rotate(90deg);
+        }
+        .package-card {
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            background: #f8f9fa;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, border 0.3s;
+            margin-bottom: 15px;
+        }
+        .package-card:hover {
+            transform: scale(1.05);
+            border: 2px solid #000000;
+        }
+        .package-card img {
+            width: 30px;
+            margin-bottom: 10px;
+        }
+        .package-card h5 {
+            color: #1900ff;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .package-card p {
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .package-card .btn {
+            background: linear-gradient(90deg, #000000, #1900ff);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: transform 0.3s;
+        }
+        .package-card .btn:hover {
+            transform: scale(1.1);
+        }
+        .custom-amount-input {
+            display: none;
+            margin-top: 20px;
+        }
+        .custom-amount-input input {
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .custom-amount-input .btn {
+            background: linear-gradient(90deg, #000000, #1900ff);
+            color: #ffffff;
+        }
+        .custom-amount-input .btn:hover {
+            background: #000000;
+        }
+        /* Testimoni Section */
+        .testimoni-section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+        .testimoni-slider {
+            position: relative;
+            overflow: hidden;
+        }
+        .testimoni-card {
+            background: linear-gradient(90deg, #000000, #1900ff);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 0 15px;
+            text-align: center;
+            transition: opacity 0.5s;
+        }
+        .testimoni-card img {
+            width: 60px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        .testimoni-card p {
+            font-style: italic;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+        .testimoni-card h5 {
+            color: #ffffff;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+        .slider-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .slider-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .slider-dot.active {
+            background: #1900ff;
+        }
+        /* Footer */
+        .footer {
+            background: linear-gradient(90deg, #000000, #1900ff);
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        .footer a img {
+            width: 22px;
+            margin-right: 10px;
+        }
+        .footer a:hover {
+            color: #e0a800;
+        }
+        .footer .slogan {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #ffffff;
+            margin: 1rem 0;
+        }
+        /* Responsivitas */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .hero .slogan { font-size: 1rem; }
+            .topup-card h3 { font-size: 1.5rem; }
+            .pesan-form { padding: 25px; }
+            .pesan-form h2 { font-size: 1.8rem; }
+            .topup-card ul li { font-size: 0.9rem; }
+            .navbar-brand img { height: 40px; }
+            .package-modal-content { width: 95%; padding: 20px; }
+            .package-card { margin: 10px 0; }
+        }
+        @media (max-width: 576px) {
+            .hero { padding: 100px 15px; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+            .hero .slogan { font-size: 0.9rem; }
+            .topup-section, .pesan-section, .testimoni-section { padding: 50px 15px; }
+            .footer { padding: 40px 15px; }
+            .package-card h5 { font-size: 1.1rem; }
+            .package-card p { font-size: 0.85rem; }
+        }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src=
+      "https://cdn-icons-png.flaticon.com/512/2972/2972431.png"
+      alt="TopUpCepat Logo"></a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#topup">List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pesan">Pesan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#kontak">Kontak</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav><!-- Hero Section -->
+  <section id="home" class="hero fade-in">
+    <canvas id="trail-canvas"></canvas>
+    <div class="hero-content">
+      <div class="container">
+        <h1>Top Up Bussid & Trucksid</h1>
+        <p class="slogan">Top Up Bussid Trucksid murah meriah amanah & cepat !</p>
+        <p>Pilih paket topup dan kirim data akun via
+        Telegram!</p><a href="#topup" class="btn btn-lg">Pesan
+        Sekarang!</a>
+      </div>
+    </div>
+  </section><!-- Top Up Section -->
+  <section id="topup" class="topup-section fade-in">
+    <div class="container">
+      <h2 class="text-center mb-5">Pilih Paket Top Up</h2>
+      <div class="row">
+        <!-- TRUCKSID -->
+        <div class="col-md-6 col-sm-12">
+          <div class="topup-card text-center" data-tilt=""
+          data-tilt-max="10" data-tilt-speed="400">
+            <h3><img src=
+            "https://cdn-icons-png.flaticon.com/512/2972/2972431.png"
+            alt="Truck Icon"> Trucksid</h3>
+            <ul>
+              <li><strong>Truck Simulator Indonesia</li>
+            </ul><a href="#pesan" class="btn btn-primary topup-btn"
+            data-game="TRUCKSID">Pilih Paket</a>
+          </div>
+        </div><!-- BUSSID -->
+        <div class="col-md-6 col-sm-12">
+          <div class="topup-card text-center" data-tilt=""
+          data-tilt-max="10" data-tilt-speed="400">
+            <h3><img src=
+            "https://cdn-icons-png.flaticon.com/512/3448/3448339.png"
+            alt="Bus Icon"> Bussid</h3>
+            <ul>
+              <li><strong>Bus Simulator Indonesia</li>
+            </ul><a href="#pesan" class="btn btn-primary topup-btn"
+            data-game="BUSSID">Pilih Paket</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- Pesan Section -->
+  <section id="pesan" class="pesan-section fade-in">
+    <div class="container">
+      <div class="pesan-form">
+        <h2>Pesan Top Up</h2>
+        <p class="text-center mb-4">Pilih paket, metode pembayaran,
+        dan masukkan data akun Anda.</p>
+        <div class="alert alert-danger" id="error-message"></div>
+        <div class="alert alert-success" id="success-message">
+        </div>
+        <form id="pesan-form" name="pesan-form">
+          <div class="mb-3">
+            <label for="game" class="form-label">Pilih Game</label>
+            <select class="form-select" id="game" name="game"
+            required="">
+              <option value="" disabled selected>
+                Pilih game
+              </option>
+              <option value="TRUCKSID">
+                Truck Simulator Indonesia
+              </option>
+              <option value="BUSSID">
+                Bus Simulator Indonesia
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="topup-package" class="form-label">Paket Top
+            Up</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id=
+              "topup-package-display" readonly placeholder=
+              "Pilih paket topup"> <input type="hidden" id=
+              "topup-package" name="topup-package"> <button type=
+              "button" class="btn btn-select-package" onclick=
+              "openPackageModal()">Pilih Paket</button>
+            </div>
+          </div>
+          <div class="mb-3" id="custom-amount-group" style=
+          "display: none;">
+            <label for="custom-amount" class="form-label">Jumlah
+            Custom</label> <input type="number" class=
+            "form-control" id="custom-amount" name="custom-amount"
+            placeholder="Masukkan jumlah (contoh: 2000000)">
+            <small class="form-text text-muted">Harga akan
+            dikonfirmasi via Telegram.</small>
+          </div>
+          <div class="mb-3">
+            <label for="account-type" class="form-label">Jenis
+            Akun</label> <select class="form-select" id=
+            "account-type" name="account-type" required="">
+              <option value="" disabled selected>
+                Pilih jenis akun
+              </option>
+              <option value="Google">
+                Google
+              </option>
+              <option value="Facebook">
+                Facebook
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="payment-method" class=
+            "form-label"><img src="https://cdn-icons-png.flaticon.com/512/138/138297.png"
+            alt="Wallet Icon"> Metode Pembayaran</label>
+            <select class="form-select" id="payment-method" name=
+            "payment-method" required="">
+              <option value="" disabled selected>
+                Pilih metode pembayaran
+              </option>
+              <option value="QRIS">
+                QRIS
+              </option>
+              <option value="DANA">
+                DANA
+              </option>
+              <option value="GoPay">
+                GoPay
+              </option>
+              <option value="SeaBank">
+                SeaBank
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="email-username" class="form-label">Email /
+            Username</label> <input type="text" class=
+            "form-control" id="email-username" name=
+            "email-username" placeholder=
+            "Masukkan email atau username" required="">
+          </div>
+          <div class="mb-3">
+            <label for="password" class=
+            "form-label">Password</label> <input type="password"
+            class="form-control" id="password" name="password"
+            placeholder="Masukkan password" required="">
+          </div><button type="submit" class="btn btn-primary">Pesan
+          Sekarang</button>
+        </form>
+      </div>
+    </div>
+  </section><!-- Popup Modal untuk Pilih Paket -->
+  <div class="package-modal" id="package-modal">
+    <div class="package-modal-content">
+      <span class="package-modal-close" onclick=
+      "closePackageModal()">×</span>
+      <h3 class="text-center mb-4">Pilih Paket Top Up</h3>
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="package-card fade-in" data-package=
+          "1000000|2000">
+            <img src=
+            "https://cdn-icons-png.flaticon.com/512/138/138292.png"
+            alt="Coin Icon">
+            <h5>50,000,000</h5>
+            <p>Rp 12,000</p><button class="btn" onclick=
+            "selectPackage('50000000|12000', '50,000,000')">Pilih</button>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="package-card fade-in" data-package=
+          "100000000|36000">
+            <img src=
+            "https://cdn-icons-png.flaticon.com/512/138/138292.png"
+            alt="Coin Icon">
+            <h5>100,000,000</h5>
+            <p>Rp 22,000</p><button class="btn" onclick=
+            "selectPackage('100000000|22000', '100,000,000')">Pilih</button>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="package-card fade-in" data-package=
+          "500000000|46000">
+            <img src=
+            "https://cdn-icons-png.flaticon.com/512/138/138292.png"
+            alt="Coin Icon">
+            <h5>500,000,000</h5>
+            <p>Rp 32,000</p><button class="btn" onclick=
+            "selectPackage('500000000|32000', '500,000,000')">Pilih</button>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="package-card fade-in" data-package=
+          "1000000000|51000">
+            <img src=
+            "https://cdn-icons-png.flaticon.com/512/138/138292.png"
+            alt="Coin Icon">
+            <h5>1,000,000,000</h5>
+            <p>Rp 42,000</p><button class="btn" onclick=
+            "selectPackage('1000000000|42000', '1,000,000,000')">Pilih</button>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="package-card fade-in" data-package="custom">
+            <img src=
+            "https://cdn-icons-png.flaticon.com/512/138/138292.png"
+            alt="Coin Icon">
+            <h5>Custom Amount</h5>
+            <p>Harga via Telegram</p><button class="btn" onclick=
+            "showCustomAmount()">Pilih</button>
+          </div>
+        </div>
+      </div>
+      <div class="custom-amount-input" id="custom-amount-input">
+        <label for="custom-amount-modal" class="form-label">Jumlah
+        Custom</label> <input type="number" class="form-control"
+        id="custom-amount-modal" placeholder=
+        "Masukkan jumlah (contoh: 2000000)"> <button class=
+        "btn mt-2" onclick=
+        "selectCustomAmount()">Konfirmasi</button>
+      </div>
+    </div>
+  </div><!-- Testimoni Section -->
+  <section id="testimoni" class="testimoni-section fade-in">
+    <div class="container">
+      <h2 class="text-center mb-5">Apa Kata Pelanggan Kami</h2>
+      <div class="testimoni-slider">
+        <div class="testimoni-card">
+          <img src=
+          "https://cdn-icons-png.flaticon.com/512/145/145843.png"
+          alt="User Avatar">
+          <p>Mantap abangnya baik, sering top up di kasih bonus terus bintang 5</p>
+          <h5>Muhammad Rafa</h5>
+        </div>
+        <div class="testimoni-card">
+          <img src=
+          "https://cdn-icons-png.flaticon.com/512/145/145843.png"
+          alt="User Avatar">
+          <p>Harga murah banget 100jt uang bussid cuman 22ribu, udah gitu dapat bonus lagi 1.2jt uang bussid mantap</p>
+          <h5>Denanihbos</h5>
+        </div>
+        <div class="testimoni-card">
+          <img src=
+          "https://cdn-icons-png.flaticon.com/512/145/145843.png"
+          alt="User Avatar">
+          <p>Tranfer jam 09:34 cash masuk ke akun trucksid jam 09:37 udah masuk mantap cepet banget</p>
+          <h5>User69</h5>
+        </div>
+        <div class="testimoni-card">
+          <img src=
+          "https://cdn-icons-png.flaticon.com/512/145/145843.png"
+          alt="User Avatar">
+          <p>Mantap gw jadi sultan di trucksid abis top up 2M sampe masuk Leaderboard No 1 gilaaaaa !</p>
+          <h5>Reza Purnama</h5>
+        </div>
+      </div>
+      <div class="slider-dots"></div>
+    </div>
+  </section><!-- Footer -->
+  <footer id="kontak" class="footer">
+    <div class="container">
+      <p class="slogan">TopUp Bussid Trucksid murah meriah amanah & cepat</p>
+      <p>© TCBT 2025 All rights reserved.</p>
+    </div>
+  </footer><!-- Bootstrap 5 JS -->
+  <script src=
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+
+        // Animasi Fade-In saat Scroll
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease-out forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeInElements.forEach(el => observer.observe(el));
+
+        // Parallax Effect di Hero Section
+        const hero = document.querySelector('.hero');
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            hero.style.backgroundPositionX = `${50 + x * 10}%`;
+            hero.style.backgroundPositionY = `${50 + y * 10}%`;
+        });
+        hero.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = hero.getBoundingClientRect();
+            const x = (touch.clientX - rect.left) / rect.width - 0.5;
+            const y = (touch.clientY - rect.top) / rect.height - 0.5;
+            hero.style.backgroundPositionX = `${50 + x * 10}%`;
+            hero.style.backgroundPositionY = `${50 + y * 10}%`;
+        });
+
+        // Mouse Trail di Hero Section
+        const canvas = document.getElementById('trail-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = hero.offsetHeight;
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = hero.offsetHeight;
+        });
+        const particles = [];
+        let mouse = { x: null, y: null };
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        hero.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = hero.getBoundingClientRect();
+            mouse.x = touch.clientX - rect.left;
+            mouse.y = touch.clientY - rect.top;
+        });
+        function createParticle() {
+            if (mouse.x !== null && mouse.y !== null) {
+                particles.push({
+                    x: mouse.x,
+                    y: mouse.y,
+                    size: Math.random() * 5 + 2,
+                    speedX: (Math.random() - 0.5) * 2,
+                    speedY: (Math.random() - 0.5) * 2,
+                    life: 50
+                });
+            }
+        }
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            createParticle();
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 193, 7, ${p.life / 50})`;
+                ctx.fill();
+                p.x += p.speedX;
+                p.y += p.speedY;
+                p.life--;
+                if (p.life <= 0) {
+                    particles.splice(i, 1);
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // Slider Testimoni
+        const slider = document.querySelector('.testimoni-slider');
+        const cards = document.querySelectorAll('.testimoni-card');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentIndex = 0;
+        function showSlide(index) {
+            cards.forEach((card, i) => {
+                card.style.display = i === index ? 'block' : 'none';
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % cards.length;
+            showSlide(currentIndex);
+        }
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                showSlide(currentIndex);
+            });
+        });
+        showSlide(currentIndex);
+        setInterval(nextSlide, 5000);
+        let touchStartX = 0;
+        slider.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+        slider.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            if (touchStartX - touchEndX > 50) {
+                nextSlide();
+            } else if (touchEndX - touchStartX > 50) {
+                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                showSlide(currentIndex);
+            }
+        });
+
+        // Popup Modal untuk Paket
+        const packageModal = document.getElementById('package-modal');
+        const customAmountInput = document.getElementById('custom-amount-input');
+        function openPackageModal() {
+            packageModal.style.display = 'flex';
+            customAmountInput.style.display = 'none';
+            document.querySelectorAll('.package-card').forEach((card, i) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, i * 100);
+            });
+        }
+        function closePackageModal() {
+            packageModal.style.display = 'none';
+            customAmountInput.style.display = 'none';
+        }
+        function selectPackage(value, display) {
+            document.getElementById('topup-package').value = value;
+            document.getElementById('topup-package-display').value = display;
+            document.getElementById('custom-amount-group').style.display = 'none';
+            closePackageModal();
+        }
+        function showCustomAmount() {
+            customAmountInput.style.display = 'block';
+            document.getElementById('custom-amount-modal').focus();
+        }
+        function selectCustomAmount() {
+            const customAmount = document.getElementById('custom-amount-modal').value.trim();
+            if (!customAmount || customAmount <= 0) {
+                alert('Masukkan jumlah yang valid!');
+                return;
+            }
+            document.getElementById('topup-package').value = 'custom';
+            document.getElementById('topup-package-display').value = `Custom Amount: ${parseInt(customAmount).toLocaleString()}`;
+            document.getElementById('custom-amount').value = customAmount;
+            document.getElementById('custom-amount-group').style.display = 'block';
+            closePackageModal();
+        }
+
+        // Formulir Pesan
+        const pesanForm = document.getElementById('pesan-form');
+        const errorMessage = document.getElementById('error-message');
+        const successMessage = document.getElementById('success-message');
+        pesanForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            const game = document.getElementById('game').value;
+            const topupPackageValue = document.getElementById('topup-package').value;
+            const accountType = document.getElementById('account-type').value;
+            const paymentMethod = document.getElementById('payment-method').value;
+            const emailUsername = document.getElementById('email-username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const customAmount = document.getElementById('custom-amount').value.trim();
+            if (!game || !topupPackageValue || !accountType || !paymentMethod || !emailUsername || !password) {
+                errorMessage.textContent = 'Semua field wajib diisi!';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            if (topupPackageValue === 'custom' && (!customAmount || customAmount <= 0)) {
+                errorMessage.textContent = 'Masukkan jumlah yang valid untuk Custom Amount!';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            const currency = game === 'TRUCKSID' ? 'UT' : 'UB';
+            let topupText;
+            if (topupPackageValue === 'custom') {
+                topupText = `Custom Amount: ${parseInt(customAmount).toLocaleString()} ${currency} (Harga dikonfirmasi via Telegram)`;
+            } else {
+                const [amount, price] = topupPackageValue.split('|');
+                topupText = `${parseInt(amount).toLocaleString()} ${currency} (Rp ${parseInt(price).toLocaleString()})`;
+            }
+            const telegramMessage = `Game: ${encodeURIComponent(game)}%0ATopup: ${encodeURIComponent(topupText)}%0APayment Method: ${encodeURIComponent(paymentMethod)}%0A${encodeURIComponent(accountType)} Email/Username: ${encodeURIComponent(emailUsername)}%0APassword: ${encodeURIComponent(password)}`;
+            const telegramUrl = `https://t.me/+628192222042?text=${telegramMessage}`;
+            successMessage.textContent = 'Pesanan berhasil dikirim ke Telegram!';
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                window.location.href = telegramUrl;
+            }, 1000);
+        });
+
+        // Set game default dari tombol topup
+        document.querySelectorAll('.topup-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.getElementById('game').value = button.dataset.game;
+            });
+        });
+  </script>
+</body>
+</html>
